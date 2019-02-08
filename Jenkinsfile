@@ -1,0 +1,13 @@
+#!/usr/bin/env groovy
+
+node {
+    bitbucketStatusNotify(buildState: 'INPROGRESS') 
+    
+    try {
+       stage('Checkout source code') {
+               checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GITCRED', url: 'https://github.com/satyendra216/simple-java-maven-app']]]) 
+        }
+    }
+ }
+}
+
