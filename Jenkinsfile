@@ -2,10 +2,14 @@
 
 node {
 	stage('Checkout source code') {
+		cleanWs()
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GITCRED', url: 'https://github.com/satyendra216/simple-java-maven-app']]]) 
         }
 	stage('Maven Build') {
-    		sh "mvn --version" // One or more steps need to be included within the steps block.
+    		sh """ 
+			sudo su
+                        mvn --version
+                """
 }
 }
 
