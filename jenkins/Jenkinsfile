@@ -1,11 +1,12 @@
 #!/usr/bin/env groovy
-pipeline {
-    agent any 
+
+node {
+    bitbucketStatusNotify(buildState: 'INPROGRESS') 
     stages {
-        stage('Stage 1') {
-            steps {
-                echo 'Hello world!' 
-            }
+        stage('Checkout source code') {
+        	cleanWs()
+                checkout scm
+                 
         }
     }
 }
