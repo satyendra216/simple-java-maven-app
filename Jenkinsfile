@@ -10,8 +10,7 @@ node {
 			sudo su
                         mvn --version
                 """
-                echo $?
-}
+	}
 }
 
 
