@@ -12,7 +12,6 @@ node {
         }
 
 	stage('Maven Build') {
-                 withDockerContainer(image: "${maven_docker_build_image}}", args: "" ) {
     		sh """ 
                        sudo mvn --version
                 """
