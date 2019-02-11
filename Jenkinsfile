@@ -7,10 +7,7 @@ node {
         }
 	stage('Maven Build') {
     		sh """ 
-			sudo su
-                        su jenkins
-                        cd /var/lib/jenkins
-                        mvn --version
+                       sudo mvn --version
                 """
 	}
 }
