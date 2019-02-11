@@ -12,8 +12,7 @@ node {
         }
 
 	stage('Maven Build') {
-        	wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
-                    withDockerContainer(image: "${maven_docker_build_image}}", args: "" ) {
+                 withDockerContainer(image: "${maven_docker_build_image}}", args: "" ) {
     		sh """ 
                        sudo mvn --version
                 """
