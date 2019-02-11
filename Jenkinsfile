@@ -8,7 +8,7 @@ node {
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GITCRED', url: 'https://github.com/satyendra216/simple-java-maven-app']]]) 
         }
 	stage('Pull latest Terraform Docker image') {
-            sh "docker pull ${maven_docker_build_image}"
+            sh "sudo ocker pull ${maven_docker_build_image}"
         }
 
 	stage('Maven Build') {
