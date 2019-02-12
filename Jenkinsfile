@@ -16,7 +16,7 @@ node {
                        docker run \
         		--volume=${WORKSPACE}/settings.xml:/root/.m2/settings.xml \
         		--entrypoint="/usr/bin/mvn" \
-                        --workdir=${WORKSPACE}
+                        --workdir=${WORKSPACE} \
         		${maven_docker_build_image} \
                         clean test package 
                 """
