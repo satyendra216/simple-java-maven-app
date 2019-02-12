@@ -19,7 +19,7 @@ node {
         		--workdir='/src' \
         		--entrypoint="/usr/bin/mvn" \
         		${maven_docker_build_image} \
-                        mvn --version
+                        mvn clean test package
                 """
 	}
 }
