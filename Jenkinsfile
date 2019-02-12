@@ -12,8 +12,14 @@ node {
         }
 
 	stage('Maven Build') {
-    		sh """ 
-                       sudo mvn --version
+    		sh script: """\
+                       docker run \
+        		--volume=${WORKSPACE}/settings.xml:/root/.m2/settings.xml \
+        		--volume=${WORKSPACE}:/src \
+        		--workdir='/src' \
+        		--entrypoint="/usr/bin/mvn" \
+        		${maven_docker_build_image} \
+                        mvn --version
                 """
 	}
 }
