@@ -17,7 +17,7 @@ node {
         		--volume=${WORKSPACE}/settings.xml:/root/.m2/settings.xml \
         		--entrypoint="/usr/bin/mvn" \
         		${maven_docker_build_image} \
-                        clean test package --file *.pom
+                        clean test package --file ${WORKSPACE}/cicd/pom.xml
                 """
 	}
 }
